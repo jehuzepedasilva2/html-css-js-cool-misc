@@ -1,0 +1,311 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ------------------------------ CLOUDS ----------------------------------------------- */
+
+:root {
+  /* for the first cloud (small one) */
+  --circle-size-one-01: 20px;
+  --circle-size-two-01: 50px;
+  --circle-size-three-01: 35px;
+  --cloud-width-one-01: 100px;
+  --cloud-bg-color-01: #e0f2fe;
+  /* for the second cloud (middle one) */
+  --circle-size-one-02: 30px;
+  --circle-size-two-02: 55px;
+  --circle-size-three-02: 45px;
+  --cloud-width-one-02: 115px;
+  --cloud-bg-color-02: #bae6fd;
+  /* for bigger cloud */
+  --circle-size-one-03: 40px;
+  --circle-size-two-03: 60px;
+  --circle-size-three-03: 55px;
+  --cloud-width-one-03: 130px;
+  --cloud-bg-color-03: #7dd3fc;
+}
+
+.clouds {
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.clouds:hover {
+  transform: scale(1.1);
+}
+
+.cloud-container-one, 
+#circle-01, 
+#circle-02 {
+  background-color: var(--cloud-bg-color-01);
+}
+
+.cloud-container-one, 
+.cloud-container-two, 
+.cloud-container-three {
+  position: relative;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.7);
+}
+
+.cloud-container-one {
+  height: calc(var(--circle-size-one-01) + 10px);
+  width: var(--cloud-width-one-01);
+  border-radius: var(--circle-size-one-01);
+  z-index: 2;
+}
+
+#circle-01 {
+  width: var(--circle-size-two-01);
+  height: var(--circle-size-two-01);
+  border-radius: var(--circle-size-two-01);
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+}
+
+#circle-02 {
+  width: var(--circle-size-three-01);
+  height: var(--circle-size-three-01);
+  border-radius: var(--circle-size-three-01);
+  position: absolute;
+  bottom: 15px;
+  right: 12px;
+}
+
+.cloud-container-two, 
+#circle-03, 
+#circle-04 {
+  background-color: var(--cloud-bg-color-02);
+}
+
+.cloud-container-two {
+  height: calc(var(--circle-size-one-02) + 10px);
+  width: var(--cloud-width-one-02);
+  border-radius: var(--circle-size-one-02);
+  position: absolute;
+  bottom: 2px;
+  left: -12px;
+  z-index: 1;
+}
+
+#circle-03 {
+  width: var(--circle-size-two-02);
+  height: var(--circle-size-two-02);
+  border-radius: var(--circle-size-two-02);
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+}
+
+#circle-04 {
+  width: var(--circle-size-three-02);
+  height: var(--circle-size-three-02);
+  border-radius: var(--circle-size-three-02);
+  position: absolute;
+  bottom: 15px;
+  right: 12px;
+}
+
+.cloud-container-three, 
+#circle-05, 
+#circle-06 {
+  background-color: var(--cloud-bg-color-03);
+}
+
+.cloud-container-three {
+  height: calc(var(--circle-size-one-03) + 10px);
+  width: var(--cloud-width-one-03);
+  border-radius: var(--circle-size-one-03);
+  position: absolute;
+  bottom: 4px;
+  right: -5px;
+  z-index: 0;
+}
+
+#circle-05 {
+  width: var(--circle-size-two-03);
+  height: var(--circle-size-two-03);
+  border-radius: var(--circle-size-two-03);
+  position: absolute;
+  bottom: 20px;
+  left: 18px;
+}
+
+#circle-06 {
+  width: var(--circle-size-three-03);
+  height: var(--circle-size-three-03);
+  border-radius: var(--circle-size-three-03);
+  position: absolute;
+  bottom: 15px;
+  right: 12px;
+}
+
+/* ------------------------------ SUN ----------------------------------------------- */
+
+:root {
+  --sun-size: 60px;
+  --sun-bg-color: #fcd34d;
+  --sun-inner-01-size: 50px;
+  --sun-inner-01-bg-color: #fde68a;
+  --sun-inner-02-size: 40px;
+  --sun-inner-02-bg-color: #fef3c7;
+  --sun-inner-03-size: 30px;
+  --sun-inner-03-bg-color: #fffbeb;
+}
+
+.sun {
+  width: var(--sun-size);
+  height: var(--sun-size);
+  border-radius: var(--sun-size);
+  position: absolute;
+  background-color: var(--sun-bg-color);
+  left: 50px;
+  z-index: 1;
+  bottom: -10px;
+  opacity: 0;
+  transition: bottom 1s ease-in-out, opacity 1s ease-in-out;
+}
+
+.sun.vis {
+  bottom: 40px;
+  opacity: 1;
+}
+
+.sun, 
+.sun-inner-01, 
+.sun-inner-02 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sun, 
+.sun-inner-01, 
+.sun-inner-02,
+.sun-inner-03 {
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+.sun-inner-01 {
+  background-color: var(--sun-inner-01-bg-color);
+  width: var(--sun-inner-01-size);
+  height: var(--sun-inner-01-size);
+  border-radius: var(--sun-inner-01-size);
+}
+
+.sun-inner-02 {
+  background-color: var(--sun-inner-02-bg-color);
+  width: var(--sun-inner-02-size);
+  height: var(--sun-inner-02-size);
+  border-radius: var(--sun-inner-02-size);
+}
+
+.sun-inner-03 {
+  background-color: var(--sun-inner-03-bg-color);
+  width: var(--sun-inner-03-size);
+  height: var(--sun-inner-03-size);
+  border-radius: var(--sun-inner-03-size);
+}
+
+/* ------------------------------MOON ----------------------------------------------- */
+
+:root {
+  --moon-size: 60px;
+  --moon-bg-color: #6b7280;
+
+  --moon-inner-size-01: 55px;
+  --moon-inner-bg-color-01: #e5e7eb;
+
+  --moon-inner-size-02: 50px;
+  --moon-inner-bg-color-02: #d1d5db;
+
+  --crater-bg-color: #c8ccd1;
+  --crater-size-01: 10px;
+  --crater-size-02: 20px;
+  --crater-size-03: 15px;
+  --crater-box-shadow-color: #a3a5a9;
+}
+
+.moon, 
+.moon-inner-01 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.moon {
+  height: var(--moon-size);
+  width: var(--moon-size);
+  background-color: var(--moon-bg-color);
+  border-radius: var(--moon-size);
+  box-shadow: 0 3px 5px rgba(256, 256, 256, 0.7);
+  position: absolute;
+  left: 50px;
+  z-index: 1;
+  transition: bottom 1s ease-in-out, opacity 1s ease-in-out;
+  bottom: 80px;
+  opacity: 0;
+}
+
+.moon.vis {
+  bottom: 40px;
+  opacity: 1;
+}
+
+.moon-inner-01 {
+  height: var(--moon-inner-size-01);
+  width: var(--moon-inner-size-01);
+  border-radius: var(--moon-inner-size-01);
+  background-color: var(--moon-inner-bg-color-01);
+}
+
+.moon-inner-02 {
+  height: var(--moon-inner-size-02);
+  width: var(--moon-inner-size-02);
+  border-radius: var(--moon-inner-size-02);
+  background-color: var(--moon-inner-bg-color-02);
+  position: relative;
+}
+
+.crater-01 {
+  width: var(--crater-size-01);
+  height: var(--crater-size-01);
+  border-radius: var(--crater-size-01);
+  background-color: var(--crater-bg-color);
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  box-shadow: inset 0px 0px 2px var(--crater-box-shadow-color);
+}
+
+.crater-02 {
+  width: var(--crater-size-02);
+  height: var(--crater-size-02);
+  border-radius: var(--crater-size-02);
+  background-color: var(--crater-bg-color);
+  position: absolute;
+  top: 24px;
+  left: 20px;
+  box-shadow: inset 0px 0px 2px var(--crater-box-shadow-color);
+}
+
+.crater-03 {
+  width: var(--crater-size-03);
+  height: var(--crater-size-03);
+  border-radius: var(--crater-size-03);
+  background-color: var(--crater-bg-color);
+  position: absolute;
+  top: 5px;
+  left: 18px;
+  box-shadow: inset 0px 0px 2px var(--crater-box-shadow-color);
+}
+
